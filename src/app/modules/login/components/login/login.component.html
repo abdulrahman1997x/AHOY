@@ -1,0 +1,67 @@
+<div class="center-content">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login/Register</mat-card-title>
+      <mat-card-subtitle>Covid Tracker</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <div class="alert alert-danger" *ngIf="error">
+          <p>{{ error }}</p>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Email"
+            ngModel
+            name="email"
+            required
+            email
+          />
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            placeholder="Password"
+            ngModel
+            name="password"
+            required
+            minlength="6"
+          />
+          <mat-icon matSuffix>vpn_key</mat-icon>
+        </mat-form-field>
+        <button
+          mat-button
+          type="submit"
+          [disabled]="!authForm.valid"
+          color="primary"
+          [ngClass]="{ submitting: isLoading }"
+        >
+          <ng-container *ngIf="!isLoading">
+            {{ isLoginMode ? "Login" : "Sign Up" }}
+          </ng-container>
+          <mat-spinner
+            *ngIf="isLoading"
+            class="m-auto"
+            color="primary"
+            [diameter]="25"
+          ></mat-spinner>
+        </button>
+        <button
+          mat-button
+          type="button"
+          class="bg-info"
+          (click)="onSwitchMode()"
+        >
+          Switch to {{ isLoginMode ? "Sign Up" : "Login" }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

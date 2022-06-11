@@ -1,0 +1,53 @@
+.number-card {
+  position: relative;
+
+  .label {
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #465266;
+  }
+  .number {
+    font-weight: 600;
+    font-size: 20px;
+    &.new {
+      color: #f6858d;
+    }
+    &.deaths {
+      color: #f6858d;
+    }
+    &.active {
+      color: #b4bac6;
+    }
+    &.total {
+      color: #1a73e8;
+    }
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    .icon-container {
+      background: #183444;
+      &.new {
+        color: #f6858d;
+      }
+      &.deaths {
+        color: #f6858d;
+      }
+      &.active {
+        color: #b4bac6;
+      }
+      &.total {
+        color: #1a73e8;
+      }
+      color: white;
+      padding: 11px 14px;
+      border-radius: 10px;
+      line-height: 0;
+      mat-icon {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

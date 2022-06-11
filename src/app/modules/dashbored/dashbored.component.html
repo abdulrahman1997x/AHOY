@@ -1,0 +1,34 @@
+<div class="">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <div class="row m-4">
+      <div class="col-12 col-lg-9 space">
+        <div class="cards-section row">
+          <ng-container *ngFor="let card of numberCards">
+            <div class="col-12 col-md-6 col-lg-3">
+              <app-number-card
+                [data]="card"
+                [loading]="loading"
+                [statistics]="statistics[0]"
+              ></app-number-card>
+            </div>
+          </ng-container>
+        </div>
+        <div class="map-section">
+          <app-map></app-map>
+        </div>
+        <div class="monthly-section">
+          <app-monthlyStatistics
+            [countries]="countries"
+            [loading]="loading"
+          ></app-monthlyStatistics>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 space country_list">
+        <app-countries-report [countries]="countries"></app-countries-report>
+      </div>
+    </div>
+  </div>
+</div>

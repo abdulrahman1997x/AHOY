@@ -1,0 +1,22 @@
+<div class="number-card">
+  <mat-card class="example-card mat-elevation-z4">
+    <mat-card-content>
+      <div class="row">
+        <div class="icon col-3">
+          <div class="icon-container">
+            <mat-icon>{{ data.icon }}</mat-icon>
+          </div>
+        </div>
+        <div class="content col-9">
+          <div class="label text-gray">{{ data.title }}</div>
+          <div class="number {{ data.class }}">
+            <div>{{ number | number: "1.0":"en-US" }}</div>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngIf="loading">
+        <app-spinner></app-spinner>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>
