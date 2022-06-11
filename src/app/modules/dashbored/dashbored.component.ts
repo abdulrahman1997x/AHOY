@@ -44,6 +44,21 @@ export class DashboredComponent implements OnInit {
     },
   ];
 
+  monthlyCharts = [
+    {
+      title: 'Historical Monthly Covid-19 Cases for',
+      prop: 'cases.new',
+      chartType: 'line',
+      label: 'Covid Daily Cases',
+    },
+    {
+      title: 'Historical Monthly Covid-19 Deaths for',
+      prop: 'deaths.new',
+      chartType: 'line',
+      label: 'Covid Daily Deaths',
+    },
+  ];
+
   constructor(private covidService: CovidService) {}
 
   ngOnInit(): void {

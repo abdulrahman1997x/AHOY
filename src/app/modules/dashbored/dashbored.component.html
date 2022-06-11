@@ -4,10 +4,10 @@
   </div>
   <div>
     <div class="row m-4">
-      <div class="col-12 col-lg-9 space">
+      <div class="col-12 col-lg-8 col-xl-9 space">
         <div class="cards-section row">
           <ng-container *ngFor="let card of numberCards">
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-lg-6 col-xl-3">
               <app-number-card
                 [data]="card"
                 [loading]="loading"
@@ -19,14 +19,19 @@
         <div class="map-section">
           <app-map></app-map>
         </div>
-        <div class="monthly-section">
-          <app-monthlyStatistics
-            [countries]="countries"
-            [loading]="loading"
-          ></app-monthlyStatistics>
+        <div class="monthly-section space">
+          <ng-container *ngFor="let chart of monthlyCharts">
+            <app-monthlyStatistics
+              [countries]="countries"
+              [loading]="loading"
+              [title]="chart.title"
+              [prop]="chart.prop"
+              [label]="chart.label"
+            ></app-monthlyStatistics>
+          </ng-container>
         </div>
       </div>
-      <div class="col-12 col-lg-3 space country_list">
+      <div class="col-12 col-lg-4 col-xl-3 space country_list">
         <app-countries-report [countries]="countries"></app-countries-report>
       </div>
     </div>

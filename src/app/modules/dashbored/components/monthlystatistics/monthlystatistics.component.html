@@ -3,7 +3,7 @@
     <mat-card-title>
       <div class="title">
         <div>
-          Historical Monthly Statistics for s
+          {{ title }}
           <span class="text-primary">{{ country }}</span>
         </div>
         <ng-select
@@ -28,7 +28,7 @@
           [data]="lineChartData"
           [options]="lineChartOptions"
           [legend]="lineChartLegend"
-          [type]="lineChartType"
+          [type]="chartType"
         >
         </canvas>
       </div>

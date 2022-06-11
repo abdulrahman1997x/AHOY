@@ -19,6 +19,11 @@ export class MonthlyStatisticsComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
   @Input() countries: [];
   @Input() loading = false;
+  @Input() prop: string = 'cases.new';
+  @Input() title: string;
+  @Input() chartType: string = 'line';
+  @Input() label: string = 'line';
+
   country: string = 'UAE';
   data = [];
   public lineChartData = {
@@ -35,7 +40,7 @@ export class MonthlyStatisticsComponent implements OnInit {
     maintainAspectRatio: false,
     parsing: {
       xAxisKey: 'day',
-      yAxisKey: 'cases.new',
+      yAxisKey: this.prop,
     },
     scales: {
       x: {
@@ -57,7 +62,6 @@ export class MonthlyStatisticsComponent implements OnInit {
     },
   ];
   public lineChartLegend = true;
-  public lineChartType = 'line';
 
   constructor(private covidService: CovidService) {}
 
@@ -74,7 +78,7 @@ export class MonthlyStatisticsComponent implements OnInit {
     this.covidService.getHistory(this.country).subscribe((res: any) => {
       this.data = res.response;
       this.lineChartData.datasets[0].data = res.response.reverse();
-      this.lineChartData.datasets[0].label = 'Covid Daily Cases';
+      this.lineChartData.datasets[0].label = this.label;
       this.chart?.update();
       this.loading = false;
     });
