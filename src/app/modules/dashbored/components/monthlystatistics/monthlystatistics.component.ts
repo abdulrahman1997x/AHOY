@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CovidService } from '../../services/covid.service';
-import { ChartOptions } from 'chart.js';
+import { ChartOptions, ChartData } from 'chart.js';
 
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -26,7 +26,7 @@ export class MonthlyStatisticsComponent implements OnInit {
 
   country: string = 'UAE';
   data = [];
-  public lineChartData = {
+  public lineChartData: ChartData = {
     datasets: [
       {
         data: [],
